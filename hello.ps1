@@ -10,6 +10,10 @@ function GetMsg ($Greeting, $Name) {
     $ret = "{0} {1}" -f $Greeting, $Name;
     if ($IsWindows) {
         $ret = $ret + ' On Windows';
+    }elseif ($IsMacOS) {
+        $ret = $ret + ' On macOS';
+    }elseif ($IsLinux) {
+        $ret = $ret + ' On Linux';
     }
     $ret;
 }   

@@ -1,7 +1,9 @@
 #!/usr/bin/env pwsh
 # input parameter
 param(
+    [Parameter(ValueFromPipeline=$true, HelpMessage="Welcome message")]
     [String]$GreetMsg = "Hello World",
+    [Parameter(HelpMessage="Greeting person, default will be login user name")]
     [String]$UserName = $env:USERNAME
 )
 

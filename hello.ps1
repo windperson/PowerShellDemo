@@ -6,19 +6,21 @@ param(
 )
 
 function GetMsg ($Greeting, $Name) {
-    if([string]::IsNullOrWhiteSpace($Name)) { 
+    if ([string]::IsNullOrWhiteSpace($Name)) {
         $Name = $env:HOSTNAME;
     }
     $ret = "{0} {1}" -f $Greeting, $Name;
     if ($IsWindows) {
         $ret = $ret + ' On Windows';
-    }elseif ($IsMacOS) {
+    }
+    elseif ($IsMacOS) {
         $ret = $ret + ' On macOS';
-    }elseif ($IsLinux) {
-        $ret = $ret + ' On Linux' +" $(uname -r)";
+    }
+    elseif ($IsLinux) {
+        $ret = $ret + ' On Linux' + " $(uname -r)";
     }
     $ret;
-}   
- 
+}
+
 $msg = GetMsg $GreetMsg $UserName;
 Write-Host $msg;
